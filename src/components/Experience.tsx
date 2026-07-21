@@ -20,30 +20,30 @@ export function Experience() {
             key={i}
             className="grid grid-cols-1 gap-1 border-t border-line py-6 first:border-t-0 sm:grid-cols-[140px_1fr]"
           >
-            <p className="font-mono text-xs text-moss">
-              {e.start} — {e.end}
-            </p>
-            <div className="flex items-start gap-3">
+            <div className="flex flex-col gap-3">
+              <p className="font-mono text-xs text-moss">
+                {e.start} — {e.end}
+              </p>
               {hasLogo(e.logo) && (
                 <Image
                   src={e.logo!}
                   alt={`${e.org} logo`}
-                  width={40}
-                  height={40}
-                  className="mt-0.5 h-10 w-10 shrink-0 rounded-md border border-line bg-paper-raised object-contain p-1.5"
+                  width={64}
+                  height={64}
+                  className="h-16 w-16 rounded-md border border-line bg-paper-raised object-contain p-2"
                 />
               )}
-              <div>
-                <h3 className="font-display text-xl font-medium text-ink">
-                  {e.role}{" "}
-                  <span className="font-sans text-base font-normal text-moss">
-                    @ {e.org}
-                  </span>
-                </h3>
-                <p className="mt-1.5 leading-relaxed text-moss">
-                  {e.description}
-                </p>
-              </div>
+            </div>
+            <div>
+              <h3 className="font-display text-xl font-medium text-ink">
+                {e.role}{" "}
+                <span className="font-sans text-base font-normal text-moss">
+                  @ {e.org}
+                </span>
+              </h3>
+              <p className="mt-1.5 leading-relaxed text-moss">
+                {e.description}
+              </p>
             </div>
           </li>
         ))}
