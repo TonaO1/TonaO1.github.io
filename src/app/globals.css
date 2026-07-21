@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #f5f6f1;
+  --paper-raised: #fbfbf8;
+  --ink: #16231c;
+  --pine: #2f5d50;
+  --pine-dim: #3f6f61;
+  --ember: #e2793d;
+  --moss: #6e7568;
+  --line: #dee1d6;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-raised: var(--paper-raised);
+  --color-ink: var(--ink);
+  --color-pine: var(--pine);
+  --color-pine-dim: var(--pine-dim);
+  --color-ember: var(--ember);
+  --color-moss: var(--moss);
+  --color-line: var(--line);
+  --font-display: var(--font-fraunces);
+  --font-sans: var(--font-plex-sans);
+  --font-mono: var(--font-plex-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #101712;
+    --paper-raised: #16201a;
+    --ink: #eef1ea;
+    --pine: #8fbfae;
+    --pine-dim: #6fa290;
+    --ember: #f0975e;
+    --moss: #9aa294;
+    --line: #263129;
+  }
+}
+
+* {
+  border-color: var(--line);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--ember);
+  color: var(--paper);
+}
+
+:focus-visible {
+  outline: 2px solid var(--ember);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
