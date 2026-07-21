@@ -1,4 +1,5 @@
 import { site } from "@/data/site";
+import { IconGithub, IconLinkedin, IconMail } from "./icons";
 
 export function Footer() {
   return (
@@ -11,15 +12,15 @@ export function Footer() {
           Built by {site.name}.
           {site.location ? ` ${site.location}.` : ""}
         </p>
-        <div className="flex gap-5 font-mono text-sm text-moss">
-          <a href={site.links.email} className="transition-colors hover:text-pine">
-            Email
+        <div className="flex items-center gap-5 text-moss">
+          <a href={site.links.email} aria-label="Email" className="transition-colors hover:text-pine">
+            <IconMail className="h-5 w-5" />
           </a>
-          <a href={site.links.github} className="transition-colors hover:text-pine">
-            GitHub
+          <a href={site.links.github} aria-label="GitHub" className="transition-colors hover:text-pine">
+            <IconGithub className="h-5 w-5" />
           </a>
-          <a href={site.links.linkedin} className="transition-colors hover:text-pine">
-            LinkedIn
+          <a href={site.links.linkedin} aria-label="LinkedIn" className="transition-colors hover:text-pine">
+            <IconLinkedin className="h-5 w-5" />
           </a>
         </div>
       </div>

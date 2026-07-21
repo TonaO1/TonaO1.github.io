@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { site } from "@/data/site";
+import { IconGithub, IconLinkedin, IconMail } from "./icons";
 
 export function Hero() {
   return (
@@ -46,21 +47,24 @@ export function Hero() {
             </a>
             <a
               href={site.links.email}
-              className="font-mono text-sm text-ink underline decoration-line underline-offset-4 transition-colors hover:decoration-ember"
+              aria-label="Email"
+              className="text-ink transition-colors hover:text-ember"
             >
-              Email
+              <IconMail className="h-5 w-5" />
             </a>
             <a
               href={site.links.github}
-              className="font-mono text-sm text-ink underline decoration-line underline-offset-4 transition-colors hover:decoration-ember"
+              aria-label="GitHub"
+              className="text-ink transition-colors hover:text-ember"
             >
-              GitHub
+              <IconGithub className="h-5 w-5" />
             </a>
             <a
               href={site.links.linkedin}
-              className="font-mono text-sm text-ink underline decoration-line underline-offset-4 transition-colors hover:decoration-ember"
+              aria-label="LinkedIn"
+              className="text-ink transition-colors hover:text-ember"
             >
-              LinkedIn
+              <IconLinkedin className="h-5 w-5" />
             </a>
           </div>
         </div>
