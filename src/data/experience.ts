@@ -30,7 +30,7 @@ export const experience: ExperienceEntry[] = [
     end: "Present",
     description:
       "Founded a parking-availability forecasting startup: built an XGBoost quantile regression model (21 engineered features) predicting campus lot occupancy up to 4 hours ahead, backed by a PostgreSQL ETL pipeline and a FastAPI microservice serving a React Native app. Piloted with George Mason parking staff after incorporating 400+ student feedback responses.",
-    logo: "/logos/parkeye.png",
+    logo: "/logos/ParkeyeLogo.png",
   },
   {
     role: "Junior Programmer Intern",
