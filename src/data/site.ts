@@ -10,6 +10,7 @@ export const site = {
     "I'm a software engineer applying to the MLH Fellowship. I like taking projects from a rough idea to something people can actually use, usually under a hackathon deadline.", // TODO (about section, part 2): your own intro paragraph — this is the one only you can write
   status: "currently building Parkeye",
   location: "Fairfax, VA", // TODO: adjust if you'd rather not show a location
+  headshot: "/logos/Headshot.jpg",
   links: {
     // Matches the address printed on OtoroTona_Resume_GMU28Portfolio.pdf (confirmed 2026-07-21).
     email: "mailto:tonaaotoro@gmail.com",
