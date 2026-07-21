@@ -4,10 +4,10 @@ export const site = {
   name: "Tona Otoro",
   role: "Software Engineer",
   eyebrow: "software engineer · builder",
-  tagline:
-    "I build AI-backed products end to end — from the model to the interface.", // TODO (about section, part 1): your own one-liner
+  tagline: "I build software to solve my problems and better my life.",
   intro:
-    "I'm a software engineer applying to the MLH Fellowship. I like taking projects from a rough idea to something people can actually use, usually under a hackathon deadline.", // TODO (about section, part 2): your own intro paragraph — this is the one only you can write
+    "My ongoing project, Parkeye, is a mobile app for simplifying campus parking at George Mason — a school with more than 30,000 commuter students.",
+  introLink: { label: "parkeye.app", href: "https://www.parkeye.app/" },
   status: "currently building Parkeye",
   location: "Fairfax, VA", // TODO: adjust if you'd rather not show a location
   headshot: "/logos/Headshot.jpg",

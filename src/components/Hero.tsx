@@ -16,6 +16,16 @@ export function Hero() {
             {site.tagline}
           </p>
           <p className="mt-3 max-w-xl leading-relaxed text-moss">{site.intro}</p>
+          {site.introLink && (
+            <a
+              href={site.introLink.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 block w-fit font-mono text-sm text-pine underline decoration-transparent underline-offset-4 transition-colors hover:decoration-pine"
+            >
+              {site.introLink.label} →
+            </a>
+          )}
 
           <div className="mt-7 inline-flex items-center gap-2 rounded-full border border-line bg-paper-raised px-4 py-1.5 font-mono text-xs text-moss">
             <span className="relative flex h-2 w-2">
