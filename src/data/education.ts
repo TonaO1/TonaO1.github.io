@@ -6,6 +6,7 @@ export type EducationEntry = {
   location: string;
   timeframe: string;
   gpa?: string;
+  logo?: string;
   bullets: { label: string; text: string }[];
 };
 
@@ -16,6 +17,7 @@ export const education: EducationEntry[] = [
     location: "Fairfax, VA",
     timeframe: "Expected May 2028",
     gpa: "3.97/4.00",
+    logo: "/logos/GmuLogo.png",
     bullets: [
       {
         label: "Coursework",

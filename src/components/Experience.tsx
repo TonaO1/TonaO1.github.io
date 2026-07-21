@@ -18,29 +18,31 @@ export function Experience() {
         {experience.map((e, i) => (
           <li
             key={i}
-            className="grid grid-cols-1 gap-1 border-t border-line py-6 first:border-t-0 sm:grid-cols-[140px_1fr]"
+            className="grid grid-cols-1 gap-4 border-t border-line py-6 first:border-t-0 sm:grid-cols-[140px_1fr]"
           >
-            <div className="flex flex-col gap-3">
-              <p className="font-mono text-xs text-moss">
-                {e.start} — {e.end}
-              </p>
+            <div className="flex items-center justify-center">
               {hasLogo(e.logo) && (
                 <Image
                   src={e.logo!}
                   alt={`${e.org} logo`}
-                  width={64}
-                  height={64}
-                  className="h-16 w-16 rounded-md border border-line bg-paper-raised object-contain p-2"
+                  width={140}
+                  height={140}
+                  className="h-auto w-full max-h-36 rounded-lg border border-line bg-paper-raised object-contain p-3"
                 />
               )}
             </div>
             <div>
-              <h3 className="font-display text-xl font-medium text-ink">
-                {e.role}{" "}
-                <span className="font-sans text-base font-normal text-moss">
-                  @ {e.org}
-                </span>
-              </h3>
+              <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                <h3 className="font-display text-xl font-medium text-ink">
+                  {e.role}{" "}
+                  <span className="font-sans text-base font-normal text-moss">
+                    @ {e.org}
+                  </span>
+                </h3>
+                <p className="shrink-0 font-mono text-xs text-moss">
+                  {e.start} — {e.end}
+                </p>
+              </div>
               <p className="mt-1.5 leading-relaxed text-moss">
                 {e.description}
               </p>

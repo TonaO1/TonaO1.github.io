@@ -2,8 +2,7 @@
 // freely — the layout supports any number of rows.
 //
 // `logo` is optional — point it at a file under /public/logos/ and it'll
-// render next to the role. See src/components/Experience.tsx for the four
-// expected filenames (State Farm, Parkeye, Transurban, GMU).
+// render next to the role.
 
 export type ExperienceEntry = {
   role: string;
@@ -49,6 +48,6 @@ export const experience: ExperienceEntry[] = [
     end: "May 2026",
     description:
       "Tutored a class of 40+ students, answered 200+ questions on the course Q&A page, and debugged student Java programs during office hours covering recursion, OOP, and data structures.",
-    logo: "/logos/gmu.png",
+    logo: "/logos/gmuTA.png",
   },
 ];
