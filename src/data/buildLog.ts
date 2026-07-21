@@ -8,12 +8,4 @@ export type LogEntry = {
   excerpt: string;
 };
 
-export const buildLog: LogEntry[] = [
-  {
-    slug: "parkeye",
-    date: "[TODO: YYYY-MM-DD]",
-    title: "Building Parkeye",
-    excerpt:
-      "[TODO: 1-2 sentence teaser — what you set out to build, and the most interesting problem you ran into.]",
-  },
-];
+export const buildLog: LogEntry[] = [];

@@ -6,6 +6,11 @@ export function BuildLog() {
   return (
     <section id="log" className="mx-auto max-w-5xl px-6 py-16 sm:py-20">
       <SectionHeading eyebrow="from the build log" title="Writing" />
+      {buildLog.length === 0 ? (
+        <div className="rounded-2xl border border-dashed border-line p-6 font-mono text-sm text-moss">
+          Coming soon — nothing posted yet.
+        </div>
+      ) : (
       <div className="flex flex-col gap-4">
         {buildLog.map((entry) => (
           <Link
@@ -30,6 +35,7 @@ export function BuildLog() {
           </Link>
         ))}
       </div>
+      )}
     </section>
   );
 }
