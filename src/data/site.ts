@@ -4,7 +4,7 @@ export const site = {
   name: "Tona Otoro",
   role: "Software Engineer",
   eyebrow: "software engineer · builder",
-  tagline: "I build software to solve my problems and better my life.",
+  tagline: "I build software to solve my problems and better people's lives.",
   intro:
     "My ongoing project, Parkeye, is a mobile app for simplifying campus parking at George Mason — a school with more than 30,000 commuter students.",
   introLink: { label: "parkeye.app", href: "https://www.parkeye.app/" },
