@@ -32,17 +32,12 @@ export function Education() {
               )}
             </div>
             <div>
-              <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                <h3 className="font-display text-xl font-medium text-ink">
-                  {e.degree}{" "}
-                  <span className="font-sans text-base font-normal text-moss">
-                    @ {e.school}
-                  </span>
-                </h3>
-                <p className="shrink-0 font-mono text-xs text-moss">
-                  {e.timeframe}
-                </p>
-              </div>
+              <h3 className="font-display text-xl font-medium text-ink">
+                {e.degree}{" "}
+                <span className="font-sans text-base font-normal text-moss">
+                  @ {e.school}
+                </span>
+              </h3>
               <p className="mt-1 font-mono text-xs text-moss">
                 {e.location}
                 {e.gpa ? ` · GPA ${e.gpa}` : ""}

@@ -4,7 +4,6 @@ export type EducationEntry = {
   school: string;
   degree: string;
   location: string;
-  timeframe: string;
   gpa?: string;
   logo?: string;
   bullets: { label: string; text: string }[];
@@ -15,7 +14,6 @@ export const education: EducationEntry[] = [
     school: "George Mason University",
     degree: "Bachelor of Science in Computer Science",
     location: "Fairfax, VA",
-    timeframe: "Expected May 2028",
     gpa: "3.97/4.00",
     logo: "/logos/GmuLogo.png",
     bullets: [
