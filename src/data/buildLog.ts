@@ -8,4 +8,12 @@ export type LogEntry = {
   excerpt: string;
 };
 
-export const buildLog: LogEntry[] = [];
+export const buildLog: LogEntry[] = [
+  {
+    slug: "how-parkeye-predicts-parking",
+    date: "2026-09-02",
+    title: "How Parkeye predicts parking at GMU",
+    excerpt:
+      "XGBoost forecasts trained on five years of lot counts, corrected in real time by crowdsourced park and departure events — without ever recording who you are or where you went.",
+  },
+];
