@@ -10,6 +10,13 @@ export type LogEntry = {
 
 export const buildLog: LogEntry[] = [
   {
+    slug: "ufc-styles-day-1",
+    date: "2026-09-02",
+    title: "UFC Styles, day 1: turning six scraped CSVs into four clean tables",
+    excerpt:
+      "UFCStats has no API, so day 1 was an adapter that joins six scraped CSVs into four tables — and every string they share lies: trailing spaces, renamed cards, and eight names that belong to two fighters each.",
+  },
+  {
     slug: "how-parkeye-predicts-parking",
     date: "2026-09-02",
     title: "How Parkeye predicts parking at GMU",
