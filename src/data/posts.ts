@@ -17,6 +17,47 @@ export type Post = {
 
 export const posts: Post[] = [
   {
+    slug: "ufc-styles-day-1",
+    title: "UFC Styles, day 1: turning six scraped CSVs into four clean tables",
+    date: "2026-09-02",
+    readingTime: "2 min read",
+    tags: ["Python", "pandas", "NumPy", "UFCStats"],
+    blocks: [
+      {
+        type: "p",
+        text: "The goal is an embedding that captures how a fighter fights, not how well. Day 1 was the data.",
+      },
+      { type: "h2", text: "The snapshot" },
+      {
+        type: "p",
+        text: "UFCStats has no API, so I collected a snapshot from Greco1899's scrape_ufc_stats (784 events through UFC 330, 8,859 bouts, 41,672 fighter-round stat rows, 4,588 fighters) and wrote the adapter that joins its six CSVs into events, fights, fight stats, and fighters.",
+      },
+      { type: "h2", text: "The strings lie" },
+      {
+        type: "p",
+        text: "The tables only share strings, and the strings lie. Every event name in the results table has a trailing space, so a merge on it matches zero rows without a warning. Two cards were renamed to Noche UFC after the fact, leaving 25 bouts duplicated with no date; a missing date passes a leak-free check silently, so the adapter requires a successful event join and asserts every fight ID is unique.",
+      },
+      {
+        type: "p",
+        text: "Fighters are identified by name only, and eight names belong to two fighters each. The adapter breaks each tie on listed weight, because merging a flyweight and a middleweight under one ID would invent a fake hybrid in the embedding. Five broken names are hand-mapped rather than fuzzy-matched, since Patricio Freire is one edit from his brother Patricky.",
+      },
+      { type: "h2", text: "Two filters I dropped" },
+      {
+        type: "p",
+        text: "DWCS is structurally unreachable from the scraper's index, and TUF Finale cards are real sanctioned bouts that include four title fights.",
+      },
+      { type: "h2", text: "Checks that fail loudly" },
+      {
+        type: "p",
+        text: "The partition contract, head plus body plus leg equals significant strikes and distance plus clinch plus ground equals the same, holds with zero violations. Statless rows are frozen at 42, and unresolved fighter IDs at zero, so a refresh that breaks a name fails loudly.",
+      },
+      {
+        type: "p",
+        text: "Output: 8,832 fights, 41,506 stat rows, all 4,588 fighters kept, because scope is day 2's job.",
+      },
+    ],
+  },
+  {
     slug: "how-parkeye-predicts-parking",
     title: "How Parkeye predicts parking at GMU",
     date: "2026-09-02",
