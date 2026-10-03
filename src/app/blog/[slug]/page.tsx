@@ -14,7 +14,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const post = posts.find((p) => p.slug === slug);
-  return { title: post ? `${post.title} — Tona Otoro` : "Post not found" };
+  return { title: post ? `${post.title} | Tona Otoro` : "Post not found" };
 }
 
 export default async function BlogPost({
@@ -30,13 +30,13 @@ export default async function BlogPost({
     <main className="flex-1">
       <article className="mx-auto max-w-2xl px-6 py-16 sm:py-24">
         <Link
-          href="/#log"
-          className="font-mono text-xs uppercase tracking-widest text-pine transition-colors hover:text-pine-dim"
+          href="/blog/"
+          className="font-mono text-[13px] uppercase tracking-widest text-accent transition-colors hover:text-accent-dim"
         >
-          ← Back to writing
+          ← All posts
         </Link>
 
-        <div className="mt-6 flex items-center gap-3 font-mono text-xs text-moss">
+        <div className="mt-6 flex items-center gap-3 font-mono text-sm text-muted">
           <span className="text-ember">$</span>
           <span>{post.date}</span>
           <span aria-hidden="true">·</span>
@@ -52,7 +52,7 @@ export default async function BlogPost({
             {post.tags.map((tag) => (
               <li
                 key={tag}
-                className="rounded-full border border-line px-2.5 py-0.5 font-mono text-xs text-moss"
+                className="rounded-full border border-line px-2.5 py-0.5 font-mono text-sm text-muted"
               >
                 {tag}
               </li>
@@ -70,7 +70,7 @@ export default async function BlogPost({
                 {block.text}
               </h2>
             ) : (
-              <p key={i} className="leading-relaxed text-ink/85">
+              <p key={i} className="text-lg leading-relaxed text-ink/85">
                 {block.text}
               </p>
             )

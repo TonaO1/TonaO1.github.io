@@ -14,13 +14,13 @@ export const buildLog: LogEntry[] = [
     date: "2026-09-02",
     title: "UFC Styles, day 1: turning six scraped CSVs into four clean tables",
     excerpt:
-      "UFCStats has no API, so day 1 was an adapter that joins six scraped CSVs into four tables — and every string they share lies: trailing spaces, renamed cards, and eight names that belong to two fighters each.",
+      "UFCStats has no API, so day 1 was an adapter that joins six scraped CSVs into four tables. The catch: every string they share lies, from trailing spaces to renamed cards to eight names that belong to two fighters each.",
   },
   {
     slug: "how-parkeye-predicts-parking",
     date: "2026-09-02",
     title: "How Parkeye predicts parking at GMU",
     excerpt:
-      "XGBoost forecasts trained on five years of lot counts, corrected in real time by crowdsourced park and departure events — without ever recording who you are or where you went.",
+      "XGBoost forecasts trained on five years of lot counts, corrected in real time by crowdsourced park and departure events, without ever recording who you are or where you went.",
   },
 ];

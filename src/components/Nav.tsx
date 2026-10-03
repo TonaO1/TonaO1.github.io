@@ -1,13 +1,15 @@
 import Link from "next/link";
 import { site } from "@/data/site";
 
+// `mobile: true` links stay visible on phone widths; the rest only show from
+// the sm breakpoint up, since six links don't fit on a ~390px screen.
 const links = [
-  { label: "Projects", href: "#projects" },
+  { label: "Projects", href: "#projects", mobile: true },
   { label: "Experience", href: "#experience" },
   { label: "Education", href: "#education" },
   { label: "Skills", href: "#skills" },
   { label: "Build log", href: "#log" },
-  { label: "Contact", href: `#contact` },
+  { label: "Contact", href: `#contact`, mobile: true },
 ];
 
 export function Nav() {
@@ -20,12 +22,12 @@ export function Nav() {
         >
           {site.name}
         </Link>
-        <ul className="flex items-center gap-6 font-mono text-xs uppercase tracking-wider text-moss">
+        <ul className="flex items-center gap-5 sm:gap-6 font-mono text-[13px] uppercase tracking-wider text-muted">
           {links.map((l) => (
-            <li key={l.href}>
+            <li key={l.href} className={l.mobile ? undefined : "hidden sm:block"}>
               <a
                 href={l.href}
-                className="transition-colors hover:text-pine"
+                className="transition-colors hover:text-accent"
               >
                 {l.label}
               </a>

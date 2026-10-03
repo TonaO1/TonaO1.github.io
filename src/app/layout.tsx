@@ -21,9 +21,9 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Tona Otoro — Software Engineer",
+  title: "Tona Otoro | Software Engineer",
   description:
-    "Portfolio of Tona Otoro — software engineer building Parkeye and Consil AI.",
+    "Portfolio of Tona Otoro, a software engineer building Parkeye (500+ App Store downloads), UFCStyles, and Consil AI.",
 };
 
 export default function RootLayout({

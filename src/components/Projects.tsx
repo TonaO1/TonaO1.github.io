@@ -10,7 +10,7 @@ export function Projects() {
         {projects.map((p) => (
           <article
             key={p.slug}
-            className="group flex flex-col overflow-hidden rounded-2xl border border-line bg-paper-raised shadow-[0_1px_0_0_rgba(22,35,28,0.03)] transition-shadow hover:shadow-md"
+            className="group flex flex-col overflow-hidden rounded-2xl border border-line bg-paper-raised shadow-[0_1px_0_0_rgba(35,28,21,0.04)] transition-shadow hover:shadow-md"
           >
             {p.image && (
               <div className="relative aspect-[8/5] w-full border-b border-line">
@@ -29,14 +29,14 @@ export function Projects() {
                 </h3>
               </div>
               {p.award && (
-                <p className="mt-1 font-mono text-xs text-ember">{p.award}</p>
+                <p className="mt-1 font-mono text-sm text-ember">{p.award}</p>
               )}
-              <p className="mt-3 flex-1 leading-relaxed text-moss">{p.blurb}</p>
+              <p className="mt-3 flex-1 text-[17px] leading-relaxed text-muted">{p.blurb}</p>
               <div className="mt-4 flex flex-wrap gap-2">
                 {p.tags.map((t) => (
                   <span
                     key={t}
-                    className="rounded-full border border-line bg-paper px-2.5 py-1 font-mono text-[11px] text-moss"
+                    className="rounded-full border border-line bg-paper px-2.5 py-1 font-mono text-[13px] text-muted"
                   >
                     {t}
                   </span>
@@ -47,7 +47,7 @@ export function Projects() {
                   <a
                     key={l.label}
                     href={l.href}
-                    className="font-mono text-sm text-pine underline decoration-transparent underline-offset-4 transition-colors hover:decoration-pine"
+                    className="font-mono text-sm text-accent underline decoration-transparent underline-offset-4 transition-colors hover:decoration-accent"
                   >
                     {l.label} →
                   </a>

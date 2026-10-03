@@ -23,15 +23,17 @@ export const skills: SkillGroup[] = [
       "Spring Boot",
       "JUnit",
       "React Native",
+      "NumPy",
+      "PyTorch",
     ],
   },
   {
     label: "Databases",
-    items: ["PostgreSQL", "SQLite", "MySQL"],
+    items: ["PostgreSQL", "SQLite", "MySQL", "DynamoDB"],
   },
   {
     label: "Tools & Platforms",
-    items: ["Git", "Docker", "Jupyter Notebook", "Expo", "Azure", "GitHub Actions", "Jira", "AWS", "Bruno"],
+    items: ["Git", "Docker", "Jupyter Notebook", "Expo", "Azure", "GitHub Actions", "Jira", "AWS", "Terraform", "GitLab CI/CD", "Sentry", "Unix/Linux", "Bruno", "Claude Code"],
   },
   {
     label: "Machine Learning",

@@ -15,22 +15,22 @@ export type ExperienceEntry = {
 
 export const experience: ExperienceEntry[] = [
   {
-    role: "Software Engineer Intern",
-    org: "State Farm",
-    start: "Jun 2026",
-    end: "Present",
-    description:
-      "Built a REST API endpoint with Spring Boot and JUnit to automate issuance timestamps for IBM IMS transactions, cutting manual setup time by ~88%. Deployed and validated changes across QA and dev on AWS ROSA using Bruno for endpoint testing.",
-    logo: "/logos/state-farm.png",
-  },
-  {
-    role: "Founder & Software Engineer",
+    role: "Co-Founder & Backend Engineer",
     org: "Parkeye",
     start: "Apr 2026",
     end: "Present",
     description:
-      "Founded a parking-availability forecasting startup: built an XGBoost quantile regression model (21 engineered features) predicting campus lot occupancy up to 4 hours ahead, backed by a PostgreSQL ETL pipeline and a FastAPI microservice serving a React Native app. Piloted with George Mason parking staff after incorporating 400+ student feedback responses.",
+      "Launched a campus parking forecasting app on the App Store that hit 500+ downloads in its first week and 400+ weekly active users across George Mason's commuter student body. Built the backend as a FastAPI service over PostgreSQL serving a React Native client on 30-second polling, with a scheduled batch worker recomputing forecasts and Sentry surfacing production failures before users report them. Designed the ETL pipeline loading 25,700+ lot-occupancy records (5 years, 14 lots) that feeds an XGBoost quantile model forecasting occupancy ranges up to 4 hours out.",
     logo: "/logos/ParkeyeLogo.png",
+  },
+  {
+    role: "Software Engineer Intern (Return Offer)",
+    org: "State Farm",
+    start: "Jun 2026",
+    end: "Aug 2026",
+    description:
+      "Engineered Spring Boot and IBM z/OS Connect REST endpoints that cut per-request time from 2 minutes to 15 seconds for scheduling product model deployments serving 130 million customers. Built a full-stack internal tool (Spring Boot REST API + React) that simplified issuance timestamp setup for 20+ engineers across 100+ weekly requests, shipped to dev and QA on Red Hat OpenShift on AWS through a GitLab CI/CD pipeline gated by a JUnit regression suite.",
+    logo: "/logos/state-farm.png",
   },
   {
     role: "Junior Programmer Intern",
@@ -38,7 +38,7 @@ export const experience: ExperienceEntry[] = [
     start: "Jan 2026",
     end: "May 2026",
     description:
-      "Built a Python pipeline processing 4,000+ daily ETC transactions to automate statistical analysis of toll violations, and a Pandas-based alerting script that cut failure-detection latency by ~99% compared to manual health checks.",
+      "Built a Python pipeline processing 4,000+ daily ETC transactions to automate statistical analysis of toll violations, logging detection confidence metrics to MySQL, and a Pandas-based alerting script that replaced weekly manual health checks and cut failure-detection latency by ~99%.",
     logo: "/logos/transurban.png",
   },
   {
@@ -47,7 +47,7 @@ export const experience: ExperienceEntry[] = [
     start: "Jan 2026",
     end: "May 2026",
     description:
-      "Tutored a class of 40+ students, answered 200+ questions on the course Q&A page, and debugged student Java programs during office hours covering recursion, OOP, and data structures.",
+      "Tutored 40+ students across office hours and lab sessions, answered 200+ Piazza questions, and debugged student Java programs covering recursion, object-oriented design, and data structures.",
     logo: "/logos/gmuTA.png",
   },
 ];
