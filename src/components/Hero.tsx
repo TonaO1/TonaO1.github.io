@@ -4,31 +4,31 @@ import { IconGithub, IconLinkedin, IconMail } from "./icons";
 
 export function Hero() {
   return (
-    <section id="top" className="mx-auto max-w-5xl px-6 pt-16 pb-20 sm:pt-24 sm:pb-28">
+    <section id="top" className="mx-auto max-w-5xl px-6 pt-16 pb-12 sm:pt-24 sm:pb-16">
       <div className="flex flex-col-reverse items-start gap-10 sm:flex-row sm:items-center sm:justify-between">
         <div className="min-w-0 flex-1">
-          <p className="font-mono text-xs uppercase tracking-widest text-pine">
+          <p className="font-mono text-[13px] uppercase tracking-widest text-accent">
             {site.eyebrow}
           </p>
           <h1 className="mt-4 font-display text-5xl font-medium leading-[1.05] tracking-tight text-ink sm:text-6xl">
             {site.name}
           </h1>
-          <p className="mt-5 max-w-xl text-lg leading-relaxed text-ink/80">
+          <p className="mt-5 max-w-xl text-xl leading-relaxed text-ink/80">
             {site.tagline}
           </p>
-          <p className="mt-3 max-w-xl leading-relaxed text-moss">{site.intro}</p>
+          <p className="mt-3 max-w-xl text-lg leading-relaxed text-muted">{site.intro}</p>
           {site.introLink && (
             <a
               href={site.introLink.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-2 block w-fit font-mono text-sm text-pine underline decoration-transparent underline-offset-4 transition-colors hover:decoration-pine"
+              className="mt-2 block w-fit font-mono text-sm text-accent underline decoration-transparent underline-offset-4 transition-colors hover:decoration-accent"
             >
               {site.introLink.label} →
             </a>
           )}
 
-          <div className="mt-7 inline-flex items-center gap-2 rounded-full border border-line bg-paper-raised px-4 py-1.5 font-mono text-xs text-moss">
+          <div className="mt-7 inline-flex items-center gap-2 rounded-full border border-line bg-paper-raised px-4 py-1.5 font-mono text-sm text-muted">
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-ember opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-ember" />
@@ -41,7 +41,7 @@ export function Hero() {
               href={site.links.resume}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full bg-pine px-5 py-2.5 font-mono text-sm text-paper-raised transition-colors hover:bg-pine-dim"
+              className="rounded-full bg-accent px-5 py-2.5 font-mono text-base text-paper-raised transition-colors hover:bg-accent-dim"
             >
               Resume
             </a>

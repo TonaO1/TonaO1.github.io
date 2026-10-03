@@ -34,17 +34,17 @@ export function Education() {
             <div>
               <h3 className="font-display text-xl font-medium text-ink">
                 {e.degree}{" "}
-                <span className="font-sans text-base font-normal text-moss">
+                <span className="font-sans text-lg font-normal text-muted">
                   @ {e.school}
                 </span>
               </h3>
-              <p className="mt-1 font-mono text-xs text-moss">
+              <p className="mt-1 font-mono text-sm text-muted">
                 {e.location}
                 {e.gpa ? ` · GPA ${e.gpa}` : ""}
               </p>
               <ul className="mt-3 flex flex-col gap-1.5">
                 {e.bullets.map((b) => (
-                  <li key={b.label} className="leading-relaxed text-moss">
+                  <li key={b.label} className="text-[17px] leading-relaxed text-muted">
                     <span className="font-medium text-ink">{b.label}:</span>{" "}
                     {b.text}
                   </li>

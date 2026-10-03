@@ -35,15 +35,15 @@ export function Experience() {
               <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
                 <h3 className="font-display text-xl font-medium text-ink">
                   {e.role}{" "}
-                  <span className="font-sans text-base font-normal text-moss">
+                  <span className="font-sans text-lg font-normal text-muted">
                     @ {e.org}
                   </span>
                 </h3>
-                <p className="shrink-0 font-mono text-xs text-moss">
-                  {e.start} — {e.end}
+                <p className="shrink-0 font-mono text-sm text-muted">
+                  {e.start} – {e.end}
                 </p>
               </div>
-              <p className="mt-1.5 leading-relaxed text-moss">
+              <p className="mt-1.5 text-[17px] leading-relaxed text-muted">
                 {e.description}
               </p>
             </div>
