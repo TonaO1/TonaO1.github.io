@@ -1,9 +1,8 @@
-"use client";
-
-import { useState } from "react";
-
-// Click-to-play YouTube embed. Shows only the thumbnail until clicked, so
-// project pages don't load YouTube's player (or its cookies) up front.
+// YouTube's own player, lazy-loaded so it doesn't fetch until scrolled near.
+// Visitors press YouTube's play button directly: a custom click-to-load
+// facade with autoplay got stuck on a spinner/black frame because browsers
+// block autoplay with sound. YouTube also requires a referrer from embeds
+// (otherwise "Error 153"), hence the explicit referrerPolicy.
 export function YouTubeDemo({
   id,
   title,
@@ -13,40 +12,34 @@ export function YouTubeDemo({
   title: string;
   vertical?: boolean;
 }) {
-  const [playing, setPlaying] = useState(false);
   const frame = vertical
     ? "mx-auto aspect-[9/16] h-[min(70vh,640px)] max-w-full"
     : "aspect-video w-full";
+  const watchUrl = vertical
+    ? `https://www.youtube.com/shorts/${id}`
+    : `https://www.youtube.com/watch?v=${id}`;
 
   return (
-    <div className={`relative overflow-hidden bg-wood-dark ${frame}`}>
-      {playing ? (
+    <div className="flex flex-col items-center gap-3">
+      <div className={`relative overflow-hidden bg-black ${frame}`}>
         <iframe
-          src={`https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`}
+          src={`https://www.youtube.com/embed/${id}?rel=0&playsinline=1`}
           title={title}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          loading="lazy"
+          referrerPolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
           className="absolute inset-0 h-full w-full"
         />
-      ) : (
-        <button
-          type="button"
-          onClick={() => setPlaying(true)}
-          aria-label={`Play ${title}`}
-          className="group absolute inset-0 h-full w-full"
-        >
-          {/* Remote thumbnail; next/image would need a remote loader under static export. */}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={`https://i.ytimg.com/vi/${id}/hqdefault.jpg`}
-            alt=""
-            className="h-full w-full object-cover opacity-85 transition-opacity group-hover:opacity-100"
-          />
-          <span className="pixel-btn absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 px-6 py-3 text-xl whitespace-nowrap">
-            ▶ Play demo
-          </span>
-        </button>
-      )}
+      </div>
+      <a
+        href={watchUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="font-pixel text-sm text-parchment underline underline-offset-4 hover:text-gold"
+      >
+        Video not loading? Watch on YouTube ↗
+      </a>
     </div>
   );
 }
