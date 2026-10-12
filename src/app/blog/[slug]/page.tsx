@@ -1,7 +1,7 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { posts } from "@/data/posts";
+import { Screen, BackButton, Chips } from "@/components/Screen";
 
 export function generateStaticParams() {
   return posts.map((p) => ({ slug: p.slug }));
@@ -27,56 +27,32 @@ export default async function BlogPost({
   if (!post) notFound();
 
   return (
-    <main className="flex-1">
-      <article className="mx-auto max-w-2xl px-6 py-16 sm:py-24">
-        <Link
-          href="/blog/"
-          className="font-mono text-[13px] uppercase tracking-widest text-accent transition-colors hover:text-accent-dim"
-        >
-          ← All posts
-        </Link>
+    <Screen title="Journal" actions={<BackButton href="/blog/" label="All entries" />}>
+      <article className="pixel-panel mx-auto my-1 max-w-2xl px-6 py-8 sm:px-10">
+        <p className="font-mono text-xs text-muted">
+          {post.date} · {post.readingTime}
+        </p>
+        <h2 className="mt-2 font-pixel text-3xl leading-tight text-ink sm:text-4xl">{post.title}</h2>
+        {post.tags && post.tags.length > 0 && (
+          <div className="mt-4">
+            <Chips items={post.tags} />
+          </div>
+        )}
 
-        <div className="mt-6 flex items-center gap-3 font-mono text-sm text-muted">
-          <span className="text-ember">$</span>
-          <span>{post.date}</span>
-          <span aria-hidden="true">·</span>
-          <span>{post.readingTime}</span>
-        </div>
-
-        <h1 className="mt-3 font-display text-4xl font-medium leading-tight tracking-tight text-ink sm:text-5xl">
-          {post.title}
-        </h1>
-
-        {post.tags && post.tags.length > 0 ? (
-          <ul className="mt-5 flex flex-wrap gap-2">
-            {post.tags.map((tag) => (
-              <li
-                key={tag}
-                className="rounded-full border border-line px-2.5 py-0.5 font-mono text-sm text-muted"
-              >
-                {tag}
-              </li>
-            ))}
-          </ul>
-        ) : null}
-
-        <div className="prose-log mt-10 flex flex-col gap-5">
+        <div className="mt-8 flex flex-col gap-5">
           {post.blocks.map((block, i) =>
             block.type === "h2" ? (
-              <h2
-                key={i}
-                className="mt-4 font-display text-2xl font-medium text-ink"
-              >
+              <h3 key={i} className="mt-3 font-pixel text-2xl text-accent">
                 {block.text}
-              </h2>
+              </h3>
             ) : (
-              <p key={i} className="text-lg leading-relaxed text-ink/85">
+              <p key={i} className="text-[17px] leading-relaxed text-ink/85">
                 {block.text}
               </p>
             )
           )}
         </div>
       </article>
-    </main>
+    </Screen>
   );
 }

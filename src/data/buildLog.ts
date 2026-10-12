@@ -1,4 +1,4 @@
-// Edit this file to update the build log preview shown on the homepage.
+// Edit this file to update the excerpts shown on the /blog Journal list.
 // The full post lives at src/app/blog/[slug]/page.tsx, sourced from posts.ts.
 
 export type LogEntry = {

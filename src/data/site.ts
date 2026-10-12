@@ -9,6 +9,8 @@ export const site = {
     "My ongoing project, Parkeye, is a mobile app for simplifying campus parking at George Mason, a school with more than 30,000 commuter students. It passed 500+ App Store downloads in its first week.",
   introLink: { label: "parkeye.app", href: "https://www.parkeye.app/" },
   status: "Parkeye: 500+ App Store downloads",
+  splash: "CS @ George Mason!", // the tilted yellow text on the title screen
+  version: "Portfolio v2.0", // bottom-left of the title screen; links to patch notes
   location: "Fairfax, VA", // TODO: adjust if you'd rather not show a location
   headshot: "/logos/Headshot.jpg",
   links: {
