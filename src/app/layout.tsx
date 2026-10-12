@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Fraunces, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
+import { Pixelify_Sans, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
+import { Scene } from "@/components/Scene";
 import "./globals.css";
 
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
+const pixelify = Pixelify_Sans({
+  variable: "--font-pixelify",
   subsets: ["latin"],
-  axes: ["opsz", "SOFT", "WONK"],
 });
 
 const plexSans = IBM_Plex_Sans({
@@ -26,6 +26,10 @@ export const metadata: Metadata = {
     "Portfolio of Tona Otoro, a software engineer building Parkeye (500+ App Store downloads), UFCStyles, and Consil AI.",
 };
 
+// Applies the saved Options → Motion choice before first paint so animations
+// don't flash on for visitors who turned them off.
+const motionScript = `try{var m=localStorage.getItem("motion");if(m)document.documentElement.dataset.motion=m}catch(e){}`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -34,9 +38,14 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${fraunces.variable} ${plexSans.variable} ${plexMono.variable} h-full antialiased`}
+      suppressHydrationWarning
+      className={`${pixelify.variable} ${plexSans.variable} ${plexMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-paper text-ink">
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: motionScript }} />
+      </head>
+      <body className="min-h-full">
+        <Scene />
         {children}
       </body>
     </html>

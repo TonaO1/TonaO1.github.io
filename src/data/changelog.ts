@@ -1,4 +1,5 @@
-// Edit this file to update the changelog strip on the homepage.
+// Edit this file to update the Patch Notes screen (/changelog), linked from
+// the version number on the title screen.
 // Newest first. `kind` is the git-style prefix: "+" added, "~" changed,
 // "!" maintenance. `href` is optional — point it at a post or project.
 
@@ -10,6 +11,12 @@ export type ChangelogEntry = {
 };
 
 export const changelog: ChangelogEntry[] = [
+  {
+    date: "2026-10-12",
+    kind: "~",
+    text: "v2.0: pixel RPG redesign, a demo page for every project",
+    href: "/projects/",
+  },
   {
     date: "2026-10-03",
     kind: "+",

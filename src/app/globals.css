@@ -1,55 +1,229 @@
 @import "tailwindcss";
 
 :root {
-  /* Warm cream palette: cream paper, brown-black ink, brick + amber accents. */
-  --paper: #f5efe2;
-  --paper-raised: #fbf8f1;
-  --ink: #231c15;
+  /* Cozy pixel RPG palette: parchment panels on dark wood, golden-hour sky,
+     brick + amber accents carried over from the cream theme. */
+  --parchment: #f5e9cc;
+  --parchment-dim: #eadbb4;
+  --parchment-deep: #dcc795;
+  --wood: #8a5a33;
+  --wood-light: #a8723f;
+  --wood-dark: #3d2616;
+  --wood-shade: #5e3b20;
+  --ink: #2b1d12;
+  --muted: #6b5440;
   --accent: #9e3b2a;
-  --accent-dim: #ad4a36;
-  --ember: #9a5716;
-  --muted: #6b5f50;
-  --line: #e3dac8;
+  --ember: #b8691c;
+  --gold: #ffd75e;
+  --leaf: #4f7a2a;
+  --sky-top: #f2b880;
+  --sky-mid: #f6d7a4;
+  --sky-low: #fbeacb;
+  --hill-far: #8fa35a;
+  --hill-near: #5f7a36;
+  --dusk: rgba(36, 22, 12, 0.62);
 }
 
 @theme inline {
-  --color-paper: var(--paper);
-  --color-paper-raised: var(--paper-raised);
+  --color-parchment: var(--parchment);
+  --color-parchment-dim: var(--parchment-dim);
+  --color-parchment-deep: var(--parchment-deep);
+  --color-wood: var(--wood);
+  --color-wood-light: var(--wood-light);
+  --color-wood-dark: var(--wood-dark);
+  --color-wood-shade: var(--wood-shade);
   --color-ink: var(--ink);
-  --color-accent: var(--accent);
-  --color-accent-dim: var(--accent-dim);
-  --color-ember: var(--ember);
   --color-muted: var(--muted);
-  --color-line: var(--line);
-  --font-display: var(--font-fraunces);
+  --color-accent: var(--accent);
+  --color-ember: var(--ember);
+  --color-gold: var(--gold);
+  --color-leaf: var(--leaf);
+  --font-pixel: var(--font-pixelify);
   --font-sans: var(--font-plex-sans);
   --font-mono: var(--font-plex-mono);
 }
 
-* {
-  border-color: var(--line);
-}
-
 body {
-  background: var(--paper);
+  background: var(--wood-dark);
   color: var(--ink);
   font-family: var(--font-sans);
 }
 
 ::selection {
   background: var(--ember);
-  color: var(--paper);
+  color: var(--parchment);
 }
 
 :focus-visible {
-  outline: 2px solid var(--ember);
+  outline: 3px solid var(--gold);
   outline-offset: 3px;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+/* ---- Pixel UI pieces ------------------------------------------------- */
+
+/* In the components layer so Tailwind utilities (absolute, hidden, bg-*)
+   can still override these on individual elements. */
+@layer components {
+  /* Notched-corner pixel border: four offset shadows draw the frame and leave
+     the corners empty, the way 8/16-bit UI boxes look. */
+  .pixel-panel {
+    background: var(--parchment);
+    box-shadow:
+      0 -4px 0 0 var(--wood-dark),
+      0 4px 0 0 var(--wood-dark),
+      -4px 0 0 0 var(--wood-dark),
+      4px 0 0 0 var(--wood-dark),
+      inset 0 4px 0 0 #fff8e6,
+      inset 0 -4px 0 0 var(--parchment-deep);
   }
+
+  .pixel-inset {
+    background: var(--parchment-dim);
+    box-shadow:
+      inset 3px 3px 0 0 var(--parchment-deep),
+      inset -3px -3px 0 0 #fff8e6;
+  }
+
+  .pixel-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: var(--wood);
+    color: var(--parchment);
+    font-family: var(--font-pixel);
+    text-shadow: 2px 2px 0 var(--wood-dark);
+    box-shadow:
+      0 -3px 0 0 var(--wood-dark),
+      0 3px 0 0 var(--wood-dark),
+      -3px 0 0 0 var(--wood-dark),
+      3px 0 0 0 var(--wood-dark),
+      inset 0 3px 0 0 var(--wood-light),
+      inset 0 -4px 0 0 var(--wood-shade);
+    transition: background-color 80ms, color 80ms;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .pixel-btn:hover {
+    background: var(--wood-light);
+    color: var(--gold);
+  }
+
+  .pixel-btn:active {
+    box-shadow:
+      0 -3px 0 0 var(--wood-dark),
+      0 3px 0 0 var(--wood-dark),
+      -3px 0 0 0 var(--wood-dark),
+      3px 0 0 0 var(--wood-dark),
+      inset 0 4px 0 0 var(--wood-shade);
+  }
+
+  .pixel-btn:disabled,
+  .pixel-btn[aria-disabled="true"] {
+    background: #6f5641;
+    color: #b9a58a;
+    cursor: not-allowed;
+    text-shadow: none;
+  }
+
+  .pixel-btn[data-active="true"] {
+    background: var(--accent);
+    color: var(--gold);
+  }
+
+  .chip {
+    display: inline-block;
+    background: var(--parchment-dim);
+    border: 2px solid var(--parchment-deep);
+    padding: 0.05rem 0.45rem;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  /* Title-screen logo: stacked hard shadows fake an extruded block face. */
+  /* Title-screen logo: a solid dark outline around every glyph keeps it
+     legible over the bright sky and passing clouds, then stacked hard shadows
+     below the outline fake an extruded block face. --o is outline thickness. */
+  .logo-text {
+    --o: 4px;
+    --d: var(--wood-dark);
+    font-family: var(--font-pixel);
+    color: #fff4dc;
+    text-shadow:
+      var(--o) 0 0 var(--d),
+      calc(var(--o) * -1) 0 0 var(--d),
+      0 var(--o) 0 var(--d),
+      0 calc(var(--o) * -1) 0 var(--d),
+      var(--o) var(--o) 0 var(--d),
+      calc(var(--o) * -1) var(--o) 0 var(--d),
+      var(--o) calc(var(--o) * -1) 0 var(--d),
+      calc(var(--o) * -1) calc(var(--o) * -1) 0 var(--d),
+      0 calc(var(--o) * 2) 0 var(--wood),
+      var(--o) calc(var(--o) * 2.5) 0 var(--d),
+      calc(var(--o) * -1) calc(var(--o) * 2.5) 0 var(--d),
+      0 calc(var(--o) * 3) 0 var(--d),
+      calc(var(--o) * 1.5) calc(var(--o) * 4) 0 rgba(36, 22, 12, 0.35);
+  }
+
+  .logo-sub {
+    --o: 3px;
+  }
+
+  .splash {
+    --d: #3a2400;
+    font-family: var(--font-pixel);
+    color: var(--gold);
+    text-shadow:
+      2px 0 0 var(--d),
+      -2px 0 0 var(--d),
+      0 2px 0 var(--d),
+      0 -2px 0 var(--d),
+      2px 2px 0 var(--d),
+      -2px 2px 0 var(--d),
+      2px -2px 0 var(--d),
+      -2px -2px 0 var(--d),
+      4px 4px 0 var(--d);
+    animation: splash-bounce 0.9s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes splash-bounce {
+  from { transform: rotate(-16deg) scale(1); }
+  to { transform: rotate(-16deg) scale(1.08); }
+}
+
+@keyframes cloud-drift {
+  from { transform: translateX(-30vw); }
+  to { transform: translateX(130vw); }
+}
+
+.cloud {
+  animation: cloud-drift linear infinite;
+}
+
+/* Thin parchment scrollbars inside screen panels. */
+.screen-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: var(--wood) transparent;
+}
+
+/* ---- Motion ---------------------------------------------------------- */
+/* System preference applies unless the visitor picked "Full" in Options;
+   picking "Reduced" applies regardless of the system setting. */
+
+@media (prefers-reduced-motion: reduce) {
+  html:not([data-motion="full"]) * {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html[data-motion="reduced"] * {
+  animation: none !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
 }
