@@ -18,7 +18,12 @@ export function Screen({
 }) {
   return (
     <div className="relative flex h-dvh flex-col bg-[var(--dusk)]">
-      <h1 className="shrink-0 px-4 pt-5 pb-3 text-center font-pixel text-2xl text-parchment [text-shadow:3px_3px_0_var(--wood-dark)] sm:text-3xl">
+      {/* On phones the Options cog lives in the title bar so the action
+          buttons get the whole bottom row; from sm up it sits in the footer. */}
+      <div className="absolute top-4 left-4 sm:hidden">
+        <Options />
+      </div>
+      <h1 className="shrink-0 px-16 pt-5 pb-3 text-center font-pixel text-2xl leading-tight text-parchment [text-shadow:3px_3px_0_var(--wood-dark)] sm:px-4 sm:text-3xl">
         {title}
       </h1>
 
@@ -31,7 +36,9 @@ export function Screen({
       </main>
 
       <footer className="flex shrink-0 items-center gap-4 px-4 pt-3 pb-4">
-        <Options />
+        <div className="hidden sm:block">
+          <Options />
+        </div>
         <div className="mx-auto flex w-full max-w-3xl flex-wrap justify-center gap-3 sm:flex-nowrap">
           {actions ?? <BackButton href="/" label="Back" />}
         </div>
