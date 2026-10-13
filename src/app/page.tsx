@@ -54,12 +54,14 @@ export default function Home() {
           <Options />
           <Link
             href="/changelog/"
-            className="font-pixel text-base text-parchment [text-shadow:2px_2px_0_var(--wood-dark)] hover:text-gold"
+            className="bg-wood-dark/85 px-2 py-0.5 font-pixel text-base text-parchment [text-shadow:1px_1px_0_var(--wood-dark)] hover:text-gold sm:bg-transparent sm:p-0 sm:[text-shadow:2px_2px_0_var(--wood-dark)]"
           >
             {site.version}
           </Link>
         </div>
-        <p className="text-center font-pixel text-sm leading-snug text-parchment [text-shadow:2px_2px_0_var(--wood-dark)] sm:text-right">
+        {/* Phones: a dark plate and a 1px shadow keep the small pixel text
+            crisp where it crosses the hill edges. */}
+        <p className="w-full max-w-md bg-wood-dark/85 px-3 py-2 text-center font-pixel text-sm leading-relaxed text-parchment [text-shadow:1px_1px_0_var(--wood-dark)] sm:w-auto sm:max-w-none sm:bg-transparent sm:p-0 sm:text-right sm:leading-snug sm:[text-shadow:2px_2px_0_var(--wood-dark)]">
           © {new Date().getFullYear()} {site.name}. Not affiliated with any game studio.
           <br />
           Menu style inspired by{" "}
