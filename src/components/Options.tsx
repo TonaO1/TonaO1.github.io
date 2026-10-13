@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useId, useRef, useState } from "react";
 
 type Motion = "full" | "reduced";
 
@@ -40,6 +40,7 @@ function IconGear({ className }: { className?: string }) {
 
 export function Options() {
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const titleId = useId();
   const [motion, setMotion] = useState<Motion>("full");
 
   function open() {
@@ -70,14 +71,14 @@ export function Options() {
 
       <dialog
         ref={dialogRef}
-        aria-labelledby="options-title"
+        aria-labelledby={titleId}
         className="pixel-panel m-auto w-[min(92vw,26rem)] p-6 text-ink backdrop:bg-[var(--dusk)]"
         onClick={(e) => {
           // Clicking the backdrop (the dialog element itself) closes it.
           if (e.target === e.currentTarget) dialogRef.current?.close();
         }}
       >
-        <h2 id="options-title" className="text-center font-pixel text-2xl">
+        <h2 id={titleId} className="text-center font-pixel text-2xl">
           Options
         </h2>
 

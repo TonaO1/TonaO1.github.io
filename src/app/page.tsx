@@ -15,7 +15,9 @@ export default function Home() {
         <p className="logo-text logo-sub mt-5 text-2xl font-bold tracking-[0.25em] sm:text-4xl">
           PORTFOLIO
         </p>
-        <p className="splash absolute -right-2 bottom-0 origin-center text-lg whitespace-nowrap sm:-right-20 sm:text-3xl">
+        {/* Phones: sits under the logo so it can't cover PORTFOLIO. Wider
+            screens: tilted off the logo's bottom-right corner. */}
+        <p className="splash mx-auto mt-6 w-fit origin-center text-lg whitespace-nowrap sm:absolute sm:-right-20 sm:bottom-0 sm:mt-0 sm:text-3xl">
           {site.splash}
         </p>
       </header>
@@ -31,14 +33,14 @@ export default function Home() {
           Character
         </Link>
 
-        <div className="mt-4 flex gap-4">
+        <div className="mt-4 flex gap-3 sm:gap-4">
           <a href={site.links.github} aria-label="GitHub" className="pixel-btn h-12 w-12 shrink-0">
             <IconGithub className="h-5 w-5" />
           </a>
-          <Link href="/blog/" className="pixel-btn flex-1 text-lg">
+          <Link href="/blog/" className="pixel-btn flex-1 text-base sm:text-lg">
             Journal
           </Link>
-          <Link href="/skills/" className="pixel-btn flex-1 text-lg">
+          <Link href="/skills/" className="pixel-btn flex-1 text-base sm:text-lg">
             Skills
           </Link>
           <a href={site.links.linkedin} aria-label="LinkedIn" className="pixel-btn h-12 w-12 shrink-0">
