@@ -61,14 +61,8 @@ export default function Home() {
         </div>
         {/* Phones: a dark plate and a 1px shadow keep the small pixel text
             crisp where it crosses the hill edges. */}
-        <p className="w-full max-w-md bg-wood-dark/85 px-3 py-2 text-center font-pixel text-sm leading-relaxed text-parchment [text-shadow:1px_1px_0_var(--wood-dark)] sm:w-auto sm:max-w-none sm:bg-transparent sm:p-0 sm:text-right sm:leading-snug sm:[text-shadow:2px_2px_0_var(--wood-dark)]">
-          © {new Date().getFullYear()} {site.name}. Not affiliated with any game studio.
-          <br />
-          Menu style inspired by{" "}
-          <a href="https://rayyanhai.dev/" className="underline hover:text-gold">
-            rayyanhai.dev
-          </a>{" "}
-          and classic pixel RPGs.
+        <p className="bg-wood-dark/85 px-3 py-1 font-pixel text-sm text-parchment [text-shadow:1px_1px_0_var(--wood-dark)] sm:bg-transparent sm:p-0 sm:[text-shadow:2px_2px_0_var(--wood-dark)]">
+          © {new Date().getFullYear()} {site.name}
         </p>
       </footer>
     </div>
